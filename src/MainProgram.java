@@ -5,6 +5,7 @@ public class MainProgram
 {
     public static void main(String[] args) throws Exception
     {
+        MainProgram mainProgram = new MainProgram();
         System.out.println("Please choose operation number:");
         System.out.println("1) A method that checks the square root of a number.");
         System.out.println("2) A method that checks a number to a specified degree.");
@@ -19,7 +20,7 @@ public class MainProgram
             {
                 double inputNumber = Double.parseDouble(bufferedReader.readLine());
                 System.out.print("Your result is: ");
-                System.out.format("%.3f%n", GetSqrtResult(inputNumber));
+                System.out.format("%.3f%n", mainProgram.GetSqrtResult(inputNumber));
             }
             catch(NumberFormatException ex){
                 System.out.println("Something error " + ex.getMessage());
@@ -32,7 +33,7 @@ public class MainProgram
             {
                 int inputNumber = Integer.parseInt(bufferedReader.readLine());
                 int powValue = Integer.parseInt(bufferedReader.readLine());
-                System.out.println("Your result is: " + GetPowResult(inputNumber, powValue));
+                System.out.println("Your result is: " + mainProgram.GetPowResult(inputNumber, powValue));
             }
             catch(NumberFormatException ex){
                 System.out.println("Something error " + ex.getMessage());
@@ -49,7 +50,7 @@ public class MainProgram
      * @param firstValue - is square root of a number.
      * @return square root of a number.
      */
-    private static double GetSqrtResult(double firstValue)
+    public double GetSqrtResult(double firstValue)
     {
         return Math.sqrt(firstValue);
     }
@@ -60,7 +61,7 @@ public class MainProgram
      * @param powValue - is pow value.
      * @return a number to a specified degree.
      */
-    private static int GetPowResult(int firstNumber, int powValue)
+    public int GetPowResult(int firstNumber, int powValue)
     {
         return (int)Math.pow(firstNumber, powValue);
     }
